@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Catalog &amp; Sandbox | Semien Labs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00b2a7",
+                        "gold": "#d4af37",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0a0a0b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .research-lattice {
+            background-image: radial-gradient(circle at 1px 1px, rgba(0, 178, 167, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .glass-card {
+            background: rgba(23, 54, 52, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(141, 206, 202, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-top: 1px solid #d4af37;
+            box-shadow: 0 10px 30px -10px rgba(0, 178, 167, 0.2), 0 0 15px rgba(212, 175, 55, 0.1);
+            transform: translateY(-4px);
+        }
+        .sandbox-preview {
+            background: linear-gradient(135deg, #0f2422 0%, #173634 100%);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen relative overflow-x-hidden">
+<!-- Research Lattice Background Motif -->
+<div class="fixed inset-0 research-lattice pointer-events-none z-0"></div>
+<div class="fixed inset-0 bg-gradient-to-b from-transparent via-background-dark/50 to-background-dark pointer-events-none z-0"></div>
+<div class="relative z-10 flex flex-col min-h-screen">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-50 w-full border-b border-solid border-teal-900/30 bg-background-dark/80 backdrop-blur-md px-4 lg:px-20 py-3">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-8">
+<a href="index.html" class="flex items-center gap-3 text-white hover:opacity-80 transition-opacity">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold tracking-tight">Semien Labs</h2>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="products.html">Products</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Labs</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Research</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="about.html">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden bg-white/5 border border-teal-800/50">
+<div class="text-primary flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 text-white placeholder:text-teal-600/50 text-sm px-3" placeholder="Search systems..." value=""/>
+</div>
+</label>
+<button class="flex h-10 px-6 bg-primary hover:bg-primary/90 text-white text-sm font-bold rounded-lg transition-all">
+<span class="m-auto">Sign In</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-[1200px] mx-auto w-full px-4 lg:px-20 py-12">
+<!-- PageHeading Component -->
+<div class="flex flex-col gap-4 mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-primary text-xs font-bold tracking-widest uppercase">R&amp;D Ecosystem</span>
+</div>
+<h1 class="text-white text-5xl font-black leading-tight tracking-tight">Product Catalog <span class="text-primary">&amp;</span> Sandbox</h1>
+<p class="text-teal-200/70 text-lg max-w-2xl font-light">Explore our suite of high-performance technical tools and live interactive prototypes designed for the next generation of digital infrastructure.</p>
+</div>
+<!-- Chips / Filter Row Component -->
+<div class="flex gap-3 pb-8 flex-wrap">
+<button class="flex h-9 items-center justify-center rounded-full bg-primary px-6 text-white text-sm font-semibold shadow-lg shadow-primary/20">
+                    All Systems
+                </button>
+<button class="flex h-9 items-center justify-center rounded-full bg-white/5 border border-teal-800/50 hover:border-primary/50 px-6 text-teal-100 text-sm font-medium transition-all">
+                    Platform
+                </button>
+<button class="flex h-9 items-center justify-center rounded-full bg-white/5 border border-teal-800/50 hover:border-primary/50 px-6 text-teal-100 text-sm font-medium transition-all">
+                    Tools
+                </button>
+<button class="flex h-9 items-center justify-center rounded-full bg-white/5 border border-teal-800/50 hover:border-primary/50 px-6 text-teal-100 text-sm font-medium transition-all">
+                    Integrations
+                </button>
+<button class="flex h-9 items-center justify-center rounded-full bg-white/5 border border-teal-800/50 hover:border-primary/50 px-6 text-teal-100 text-sm font-medium transition-all">
+                    Research
+                </button>
+</div>
+<!-- Featured Sandbox Card -->
+<div class="mb-12 @container">
+<div class="flex flex-col items-stretch justify-start rounded-xl @xl:flex-row shadow-2xl glass-card overflow-hidden group">
+<!-- Interactive Sandbox Preview Element -->
+<div class="w-full @xl:w-1/2 min-h-[300px] sandbox-preview relative overflow-hidden flex items-center justify-center p-8">
+<div class="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+<!-- Mock Sandbox UI -->
+<div class="w-full h-full bg-black/40 rounded-lg border border-teal-500/30 p-4 font-mono text-xs text-primary/80 overflow-hidden shadow-inner">
+<div class="flex items-center gap-2 mb-4 border-b border-teal-900/50 pb-2">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="ml-2 text-teal-500/50">lumina-sandbox --stream</span>
+</div>
+<div class="space-y-1">
+<p><span class="text-gold">&gt;</span> Initializing connection to node_x72...</p>
+<p><span class="text-gold">&gt;</span> Handshake verified. Latency: 14ms</p>
+<p><span class="text-teal-400">04:12:01 [DATA] packet_id: 8291 --received</span></p>
+<p><span class="text-teal-400">04:12:02 [DATA] packet_id: 8292 --received</span></p>
+<div class="flex items-end gap-1 h-12 mt-4">
+<div class="w-full bg-primary/20 h-[20%] rounded-t-sm"></div>
+<div class="w-full bg-primary/30 h-[45%] rounded-t-sm"></div>
+<div class="w-full bg-primary/50 h-[80%] rounded-t-sm"></div>
+<div class="w-full bg-primary h-[60%] rounded-t-sm"></div>
+<div class="w-full bg-primary/40 h-[90%] rounded-t-sm"></div>
+<div class="w-full bg-primary/60 h-[30%] rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-4 p-8">
+<div class="flex items-center justify-between">
+<p class="text-gold text-xs font-bold tracking-widest uppercase">Featured Preview</p>
+<span class="text-teal-500/50 text-xs font-mono">LAB-SBX-01</span>
+</div>
+<h2 class="text-white text-3xl font-bold tracking-tight">Lumina API Sandbox</h2>
+<div class="space-y-4">
+<p class="text-teal-100/70 text-base leading-relaxed">Experience the power of ultra-low latency data streaming in our interactive environment. The Lab Sandbox allows you to test endpoints, simulate high-concurrency loads, and visualize throughput metrics in real-time.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 rounded bg-teal-900/30 text-teal-400 text-[10px] font-bold uppercase border border-teal-800/50">WebSocket</span>
+<span class="px-2 py-1 rounded bg-teal-900/30 text-teal-400 text-[10px] font-bold uppercase border border-teal-800/50">gRPC</span>
+<span class="px-2 py-1 rounded bg-teal-900/30 text-teal-400 text-[10px] font-bold uppercase border border-teal-800/50">Live</span>
+</div>
+</div>
+<div class="mt-4">
+<button class="inline-flex items-center gap-2 h-12 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-all shadow-lg shadow-primary/20">
+<span>Try Sandbox</span>
+<span class="material-symbols-outlined text-sm">terminal</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product ImageGrid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="flex flex-col glass-card rounded-xl overflow-hidden">
+<div class="w-full aspect-video relative">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Abstract network of glowing cyan data nodes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBogVRLwBUSbDH8gVKJFY_fpajdei-dlloNMchoXb3Q2fyhyPcww_LJrwYuh8eEt080IxlUEll8h7-JdCGQ-avlb_fOHC5nUx34iPQF9PlFe2HaCD4Pu40uxolZ5oKWSpUsL9nTtZOuklVa2knT5-8AEzOmM2Kg3ZSuN6jxNIMqUSxBkfATYl3_LBjdXEpGM20vc5TNERuryV4T-WwXJnlIDDvCjhB7IVjthn5N6u80DLZAmSNv4DF0AnOlYGo4jmUaHFJdRrr966Kf");'></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-background-dark/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-teal-400 uppercase border border-teal-800/50">v1.2</span>
+<span class="bg-primary/20 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-white uppercase">Stable</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-white text-xl font-bold mb-2">Lumina Core</h3>
+<p class="text-teal-200/60 text-sm leading-normal mb-6">The foundational high-throughput messaging engine for modern distributed systems.</p>
+<div class="mt-auto flex items-center justify-between gap-4">
+<button class="flex-1 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-teal-800/50 hover:bg-white/10 text-teal-100 text-xs font-bold transition-all">
+                                Documentation
+                            </button>
+<button class="w-10 h-9 flex items-center justify-center rounded-lg bg-primary/20 hover:bg-primary/30 text-primary transition-all">
+<span class="material-symbols-outlined text-xl">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col glass-card rounded-xl overflow-hidden">
+<div class="w-full aspect-video relative">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Geometric dark grid with primary teal accents" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbHGP6FXObZxVHys24JVPvPukDFZ8d2WPxigvFwEgFIFi3btIC_CFLYFTKP0s5x8dvp4gWDVbSuKxXSVbKtGdOX-G9EqiWFwdZRJe0PKBu7rcPqunHf-oMSRZ1D8I0VylzT68ErbppwXJhzy0bUlv7LVtauHREuZjLRkeE_4bimq3vKnmusKyDZYieQN9zFLAWZlP09gC04ioPdwKt3dIOaAFZC6KcjwsAoIXde8vWt5Lk8SMuRIFA3YEW1swWAPQqUQm9cdxMeT5y");'></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-background-dark/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-gold uppercase border border-gold/30">v0.9</span>
+<span class="bg-amber-900/40 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-amber-200 uppercase">Beta</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-white text-xl font-bold mb-2">Synth Layer</h3>
+<p class="text-teal-200/60 text-sm leading-normal mb-6">AI-driven orchestration for managing complex research workloads across multiple nodes.</p>
+<div class="mt-auto flex items-center justify-between gap-4">
+<button class="flex-1 h-9 flex items-center justify-center rounded-lg bg-primary hover:bg-primary/90 text-white text-xs font-bold transition-all shadow-lg shadow-primary/10">
+                                Try Sandbox
+                            </button>
+<button class="w-10 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-teal-800/50 text-teal-100 transition-all">
+<span class="material-symbols-outlined text-xl">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col glass-card rounded-xl overflow-hidden">
+<div class="w-full aspect-video relative">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Flowing golden lines on a deep dark teal background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWYr7_sVfm-Olepx7e8KJxhm577mG6QDwdDrCk0qyB9MomAQGU9FyT6cRfhJyNj4uJVyGuxUkspv_1reg5_VwZlI8aTo4yhaXwRgu4wNblfaeLDEH7F4hLTW7EhZclf_H-WuwjaIOlCE-2AugjWE_r1aDnzdVenkpWKgilFevgqqAi5AxacAY-fcAPBAR6sSdtCv7Qab22P-qZf6R4OpVPvU7v3l9KFLjXL3DzeuM-iAdBU-qM8nUHeN50sATCb6RXZ7ezFoXir6rV");'></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-background-dark/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-teal-400 uppercase border border-teal-800/50">v2.0</span>
+<span class="bg-teal-900/40 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-teal-100 uppercase">Alpha</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-white text-xl font-bold mb-2">Research Lattice</h3>
+<p class="text-teal-200/60 text-sm leading-normal mb-6">A visual topology tool for exploring large-scale system inter-dependencies in real-time.</p>
+<div class="mt-auto flex items-center justify-between gap-4">
+<button class="flex-1 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-teal-800/50 hover:bg-white/10 text-teal-100 text-xs font-bold transition-all">
+                                Request Access
+                            </button>
+<button class="w-10 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-teal-800/50 text-teal-100 transition-all">
+<span class="material-symbols-outlined text-xl">info</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 (Extra for grid completion) -->
+<div class="flex flex-col glass-card rounded-xl overflow-hidden">
+<div class="w-full aspect-video relative">
+<div class="absolute inset-0 bg-center bg-cover" data-alt="Interface showing various system monitoring graphs" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcc_n3Hx4MuK4I-R1Mzu3qaYsVSKNErtO7YHYUQjiTNeDdBH9FMYaFTruI3VopVWFvEaDnAR0yXcmp0a-Ool5IkqnXgiMXDJWq6qPGmc8TCL9pEjfh534BroDj5E6vmJJudUa6wNrMKrOPVa8PPDr0q6ZlG9FwH9mTTK5KNNeAcMyiHynPWqMoRoJCi9UKhBJhCTJaabBXVaoDRGHIAqVWsCn4SK2RTD4kSCuz-FLsdDp87z8iuDlN40i-G9wJD-Mx1GR1xGy-emRU");'></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-background-dark/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-teal-400 uppercase border border-teal-800/50">v1.0</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-white text-xl font-bold mb-2">Vector Pulse</h3>
+<p class="text-teal-200/60 text-sm leading-normal mb-6">Automated observability and alerting for high-performance computing clusters.</p>
+<div class="mt-auto flex items-center justify-between gap-4">
+<button class="flex-1 h-9 flex items-center justify-center rounded-lg bg-primary hover:bg-primary/90 text-white text-xs font-bold transition-all">
+                                Try Sandbox
+                            </button>
+<button class="w-10 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-teal-800/50 text-teal-100 transition-all">
+<span class="material-symbols-outlined text-xl">share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-10 border-t border-teal-900/30 bg-background-dark/40 px-4 lg:px-20">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">Semien Labs</span>
+<span class="text-teal-800">|</span>
+<span class="text-teal-600/60 text-sm">© 2024 Research &amp; Development Group</span>
+</div>
+<div class="flex gap-8">
+<a class="text-teal-600 hover:text-primary transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-teal-600 hover:text-primary transition-colors text-sm" href="#">Terms of Service</a>
+<a class="text-teal-600 hover:text-primary transition-colors text-sm" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
